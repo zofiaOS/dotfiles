@@ -14,10 +14,6 @@ autocmd BufWritePre *.cs :%s/\s\+$//e
 "Highlight spaces and tabs in a more convenint way
 set list listchars=tab:>.,trail:.,extends:#,nbsp:. 
 
-if has("autocmd")
-filetype plugin indent on
-endif
-
 set showcmd " Show (partial) command in status line.
 set showmatch " Show matching brackets.
 
@@ -26,7 +22,6 @@ set smartcase " Do smart case matching
 set incsearch " Incremental search
 set hlsearch
 
-set nocompatible
 set scrolloff=5
 set sidescrolloff=5
 
@@ -69,11 +64,40 @@ noremap ;; ;
 " searching for selected text
 vnorem // y/<c-r>"<cr>
 
-"Changes color of status bar if in insert mode
+" Changes color of status bar if in insert mode
 if version >= 700
   au InsertEnter * hi StatusLine term=reverse ctermfg=LightRed ctermbg=White
   au InsertLeave * hi StatusLine term=reverse ctermfg=LightGrey ctermbg=Black
 endif
 
-"Pathogen - easy plugins and runtime files installation
-execute pathogen#infect()
+" Vundle setup
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+"" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Syntax checking
+Plugin 'https://github.com/scrooloose/syntastic'
+
+" Clojure syntax highlighting
+Plugin 'https://github.com/vim-scripts/VimClojure'
+
+Plugin 'https://github.com/tpope/vim-surround'
+
+" search forward with f and backward with F
+let g:clever_f_fix_key_direction=1
+Plugin 'https://github.com/rhysd/clever-f.vim'
+
+" Full path fuzzy file finder
+Plugin 'https://github.com/kien/ctrlp.vim'
+
+Plugin 'https://github.com/tpope/vim-vinegar'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
