@@ -1,15 +1,15 @@
 vimrc
 =====
 
-##Link to vimrc:
+#Link to vimrc:
 
 `ln -s .vimrc ~/.vimrc`
 
-##Set up Vundle:
+#Set up Vundle:
 
 `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
-##Install Plugins:
+#Install Plugins:
 
    Launch `vim` and run `:PluginInstall`
 

@@ -42,17 +42,21 @@ set wildmenu
 set wildignore=*.swp,*.bak,*.pyc
 set ruler
 
-"set colorcolumn=80
-"highlight ColorColumn ctermbg=lightgrey
+" set colorcolumn=80
+" highlight ColorColumn ctermbg=lightgrey
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
 
+" Leader
+let mapleader = "\<Space>"
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>w :w<CR>
 
 inoremap jj <Esc>
-nnoremap <space> :set hlsearch!<CR>
+nnoremap <Leader><space> :set hlsearch!<CR>
 
 " move vertically by visual line
 nnoremap j gj
