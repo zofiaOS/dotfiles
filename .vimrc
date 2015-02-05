@@ -5,21 +5,21 @@ set tabstop=4
 set expandtab
 set smarttab
 
-"Deletes trailing whitespaces
+" Deletes trailing whitespaces
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.java :%s/\s\+$//e
 autocmd BufWritePre *.xml :%s/\s\+$//e
 autocmd BufWritePre *.cs :%s/\s\+$//e
 
-"Highlight spaces and tabs in a more convenint way
+" Highlight spaces and tabs in a more convenint way
 set list listchars=tab:>.,trail:.,extends:#,nbsp:. 
 
-set showcmd " Show (partial) command in status line.
+set showcmd   " Show (partial) command in status line.
 set showmatch " Show matching brackets.
 
 set ignorecase " Do case insensitive matching
-set smartcase " Do smart case matching
-set incsearch " Incremental search
+set smartcase  " Do smart case matching
+set incsearch  " Incremental search
 set hlsearch
 
 set scrolloff=5
@@ -30,7 +30,6 @@ set mouse=a
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 
-"set hidden        " hide buffers instead of closing them
 set number        " always show line numbers
 
 set history=1000
@@ -54,9 +53,9 @@ map n nzz
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader><space> :set hlsearch!<CR>
 
 inoremap jj <Esc>
-nnoremap <Leader><space> :set hlsearch!<CR>
 
 " move vertically by visual line
 nnoremap j gj
@@ -78,7 +77,7 @@ endif
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-"" set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
