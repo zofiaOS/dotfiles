@@ -112,6 +112,9 @@ set t_Co=256
 let g:Powerline_symbols = 'fancy'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
+" Number of matches
+Plugin 'https://github.com/henrik/vim-indexed-search'
+
 " Completition
 Plugin 'https://github.com/davidhalter/jedi-vim'
 let g:neocomplete#enable_at_startup = 1
