@@ -61,6 +61,8 @@ inoremap jj <Esc>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap Y y$
+
 map ; :
 noremap ;; ;
 
@@ -100,6 +102,27 @@ Plugin 'https://github.com/rhysd/clever-f.vim'
 Plugin 'https://github.com/kien/ctrlp.vim'
 
 Plugin 'https://github.com/tpope/vim-vinegar'
+
+" Git integration
+Plugin 'https://github.com/tpope/vim-fugitive'
+
+" Status bar
+" Plugin 'https://github.com/powerline/powerline'
+
+" Completition
+Plugin 'https://github.com/davidhalter/jedi-vim'
+let g:neocomplete#enable_at_startup = 1
+" Jedi complete for python
+autocmd FileType python setlocal omnifunc=jedi#completions
+    let g:jedi#completions_enabled = 0
+    let g:jedi#auto_vim_configuration = 0
+    if !exists('g:neocomplete#force_omni_input_patterns')
+      let g:neocomplete#force_omni_input_patterns = {}
+    endif
+    let g:neocomplete#force_omni_input_patterns.python =
+    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    " alternative pattern: '\h\w*\|[^. \t]\.\w*'
+Plugin 'https://github.com/Shougo/neocomplete.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
