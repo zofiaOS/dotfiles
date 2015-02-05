@@ -15,5 +15,4 @@ vimrc
 
    To install from command line: `vim +PluginInstall +qall`
 
-   ####To install powerline:
-       [Install font] (https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation)
+   To install powerline: [Install font] (https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation)
