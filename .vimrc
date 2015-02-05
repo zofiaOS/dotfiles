@@ -35,7 +35,6 @@ set number        " always show line numbers
 set history=1000
 set undolevels=1000      " use many levels of undo
 set title                " change the terminal's title
-set laststatus=2         " Always show status line
 set wildmenu
 
 set wildignore=*.swp,*.bak,*.pyc
@@ -70,10 +69,10 @@ noremap ;; ;
 vnorem // y/<c-r>"<cr>
 
 " Changes color of status bar if in insert mode
-if version >= 700
-  au InsertEnter * hi StatusLine term=reverse ctermfg=LightRed ctermbg=White
-  au InsertLeave * hi StatusLine term=reverse ctermfg=LightGrey ctermbg=Black
-endif
+" if version >= 700
+"   au InsertEnter * hi StatusLine term=reverse ctermfg=LightRed ctermbg=White
+"   au InsertLeave * hi StatusLine term=reverse ctermfg=LightGrey ctermbg=Black
+" endif
 
 " Vundle setup
 set nocompatible              " be iMproved, required
@@ -107,7 +106,11 @@ Plugin 'https://github.com/tpope/vim-vinegar'
 Plugin 'https://github.com/tpope/vim-fugitive'
 
 " Status bar
-" Plugin 'https://github.com/powerline/powerline'
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Completition
 Plugin 'https://github.com/davidhalter/jedi-vim'
