@@ -54,6 +54,9 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :wq<CR>
 nnoremap <Leader><space> :set hlsearch!<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <leader>sp :set paste!<CR>
 
 inoremap jj <Esc>
 
@@ -73,6 +76,7 @@ vmap <Up> [egv
 vmap <Down> ]egv
 
 " map left/right arrow keys to indendation
+nnoremap <Leader>gd :Gdiff<CR>
 nmap <Left> <<
 nmap <Right> >>
 vmap <Left> <gv
