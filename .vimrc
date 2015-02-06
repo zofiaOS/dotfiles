@@ -65,6 +65,18 @@ nnoremap Y y$
 map ; :
 noremap ;; ;
 
+"map up/down arrow keys to unimpaired commands
+nmap <Up> [e
+nmap <Down> ]e
+vmap <Up> [egv
+vmap <Down> ]egv
+
+"map left/right arrow keys to indendation
+nmap <Left> <<
+nmap <Right> >>
+vmap <Left> <gv
+vmap <Right> >gv
+
 " searching for selected text
 vnorem // y/<c-r>"<cr>
 
@@ -92,6 +104,7 @@ Plugin 'https://github.com/scrooloose/syntastic'
 Plugin 'https://github.com/vim-scripts/VimClojure'
 
 Plugin 'https://github.com/tpope/vim-surround'
+Plugin 'https://github.com/tpope/vim-unimpaired'
 
 " search forward with f and backward with F
 let g:clever_f_fix_key_direction=1
