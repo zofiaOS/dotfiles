@@ -76,7 +76,6 @@ vmap <Up> [egv
 vmap <Down> ]egv
 
 " map left/right arrow keys to indendation
-nnoremap <Leader>gd :Gdiff<CR>
 nmap <Left> <<
 nmap <Right> >>
 vmap <Left> <gv
