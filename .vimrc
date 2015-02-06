@@ -52,6 +52,7 @@ map n nzz
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :wq<CR>
 nnoremap <Leader><space> :set hlsearch!<CR>
 
 inoremap jj <Esc>
@@ -65,17 +66,25 @@ nnoremap Y y$
 map ; :
 noremap ;; ;
 
-"map up/down arrow keys to unimpaired commands
+" map up/down arrow keys to unimpaired commands
 nmap <Up> [e
 nmap <Down> ]e
 vmap <Up> [egv
 vmap <Down> ]egv
 
-"map left/right arrow keys to indendation
+" map left/right arrow keys to indendation
 nmap <Left> <<
 nmap <Right> >>
 vmap <Left> <gv
 vmap <Right> >gv
+
+" Copy to system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 
 " searching for selected text
 vnorem // y/<c-r>"<cr>
