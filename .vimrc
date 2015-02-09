@@ -12,7 +12,7 @@ autocmd BufWritePre *.xml :%s/\s\+$//e
 autocmd BufWritePre *.cs :%s/\s\+$//e
 
 " Highlight spaces and tabs in a more convenint way
-set list listchars=tab:>.,trail:.,extends:#,nbsp:. 
+set list listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 set showcmd   " Show (partial) command in status line.
 set showmatch " Show matching brackets.
@@ -124,6 +124,8 @@ Plugin 'https://github.com/rhysd/clever-f.vim'
 " Full path fuzzy file finder
 Plugin 'https://github.com/kien/ctrlp.vim'
 
+" Filesystem
+Plugin 'https://github.com/scrooloose/nerdtree'
 Plugin 'https://github.com/tpope/vim-vinegar'
 
 " Git integration
@@ -138,6 +140,9 @@ Plugin 'https://github.com/bling/vim-airline'
 
 " Number of matches
 Plugin 'https://github.com/henrik/vim-indexed-search'
+" Showing marks
+Plugin 'https://github.com/kshenoy/vim-signature'
+Plugin 'https://github.com/scrooloose/nerdcommenter'
 
 " Completition
 Plugin 'https://github.com/davidhalter/jedi-vim'
