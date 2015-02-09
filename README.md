@@ -14,3 +14,5 @@ vimrc
    Launch `vim` and run `:PluginInstall`
 
    To install from command line: `vim +PluginInstall +qall`
+
+   `sudo apt-get install ctags`

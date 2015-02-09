@@ -88,6 +88,10 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
+" Ctags
+nnoremap <Leader>tt :TagbarToggle<CR>
+nnoremap <leader>. :CtrlPTag<CR>
+
 " searching for selected text
 vnorem // y/<c-r>"<cr>
 
@@ -127,6 +131,7 @@ Plugin 'https://github.com/kien/ctrlp.vim'
 " Filesystem
 Plugin 'https://github.com/scrooloose/nerdtree'
 Plugin 'https://github.com/tpope/vim-vinegar'
+Plugin 'git://github.com/majutsushi/tagbar'
 
 " Git integration
 Plugin 'https://github.com/tpope/vim-fugitive'
