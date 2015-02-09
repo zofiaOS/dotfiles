@@ -90,6 +90,7 @@ vmap <Leader>P "+P
 
 " Ctags
 nnoremap <Leader>tt :TagbarToggle<CR>
+nnoremap <Leader>ttp :TagbarTogglePause<CR>
 nnoremap <leader>. :CtrlPTag<CR>
 
 " searching for selected text
