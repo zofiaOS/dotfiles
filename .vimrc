@@ -26,17 +26,16 @@ set scrolloff=5
 set sidescrolloff=5
 
 set mouse=a
+set backspace=2
 
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 
 set number        " always show line numbers
-
 set history=1000
 set undolevels=1000      " use many levels of undo
 set title                " change the terminal's title
 set wildmenu
-
 set wildignore=*.swp,*.bak,*.pyc
 set ruler
 
@@ -134,8 +133,8 @@ Plugin 'https://github.com/tpope/vim-fugitive'
 set laststatus=2
 set encoding=utf-8
 set t_Co=256
-let g:Powerline_symbols = 'fancy'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+let g:airline_powerline_fonts = 1
+Plugin 'https://github.com/bling/vim-airline'
 
 " Number of matches
 Plugin 'https://github.com/henrik/vim-indexed-search'
@@ -154,6 +153,12 @@ autocmd FileType python setlocal omnifunc=jedi#completions
     \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
 Plugin 'https://github.com/Shougo/neocomplete.vim'
+
+" Alternative autocomplete
+" let g:neocomplcache_enable_at_startup = 1
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" Plugin 'https://github.com/Shougo/neocomplcache.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
