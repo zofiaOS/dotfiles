@@ -121,8 +121,8 @@ vnorem // y/<c-r>"<cr>
 " endif
 
 " Abbrevations
-" TODO only in python
-iabbrev pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
+autocmd BufNewFile,BufRead *.py iabbrev pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
+autocmd BufNewFile,BufRead *.clj iabbrev pumpum (spit ("/tmp/pum" (str "\npum" "\n") :append true))
 
 " Vundle setup
 set nocompatible              " be iMproved, required
