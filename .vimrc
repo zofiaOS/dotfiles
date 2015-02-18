@@ -64,7 +64,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 noremap N Nzz
 noremap n nzz
 
+inoremap <esc> <nop>
 inoremap jj <Esc>
+inoremap kk <esc>
+inoremap jk <esc>
 
 " move vertically by visual line
 nnoremap j gj
