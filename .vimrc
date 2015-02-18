@@ -50,8 +50,11 @@ map n nzz
 " Leader
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
+nnoremap <leader>l :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :wq<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>s :wq<CR>
+nnoremap <Leader>a ggVG
 nnoremap <Leader><space> :set hlsearch!<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
@@ -142,6 +145,8 @@ set laststatus=2
 set encoding=utf-8
 set t_Co=256
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
 Plugin 'https://github.com/bling/vim-airline'
 
 " Number of matches
