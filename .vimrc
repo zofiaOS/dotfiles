@@ -42,11 +42,6 @@ set ruler
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=lightgrey
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-noremap N Nzz
-noremap n nzz
-
 " Leader
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
@@ -63,6 +58,11 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <leader>sp :set paste!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+noremap N Nzz
+noremap n nzz
 
 inoremap jj <Esc>
 
@@ -112,6 +112,10 @@ vnorem // y/<c-r>"<cr>
 "   au InsertEnter * hi StatusLine term=reverse ctermfg=LightRed ctermbg=White
 "   au InsertLeave * hi StatusLine term=reverse ctermfg=LightGrey ctermbg=Black
 " endif
+
+" Abbrevations
+" TODO only in python
+iabbrev pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
 
 " Vundle setup
 set nocompatible              " be iMproved, required
