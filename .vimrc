@@ -44,8 +44,8 @@ set ruler
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
-map N Nzz
-map n nzz
+noremap N Nzz
+noremap n nzz
 
 " Leader
 let mapleader = "\<Space>"
@@ -92,6 +92,10 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+
+" Convert the current word to uppercase
+inoremap <c-u> <esc>viwUi
+nnoremap <c-u> viwU
 
 " Ctags
 nnoremap <Leader>tt :TagbarToggle<CR>
