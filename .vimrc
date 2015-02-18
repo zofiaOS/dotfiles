@@ -55,8 +55,10 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :wq<CR>
 nnoremap <Leader>a ggVG
+nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader><space> :set hlsearch!<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <leader>sp :set paste!<CR>
 
