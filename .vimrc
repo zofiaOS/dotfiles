@@ -70,6 +70,10 @@ inoremap jj <Esc>
 nnoremap j gj
 nnoremap k gk
 
+" move on line
+nnoremap H ^
+nnoremap L $
+
 nnoremap Y y$
 
 map ; :
