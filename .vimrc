@@ -1,4 +1,5 @@
 syntax on
+" Settings  ---------------------- {{{
 set background=dark
 set shiftwidth=4
 set tabstop=4
@@ -41,8 +42,9 @@ set ruler
 
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=lightgrey
+" }}}
 
-" Leader
+" Leader ---------------------- {{{
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>l :CtrlPMRU<CR>
@@ -61,6 +63,21 @@ nnoremap <leader>ss :set spell!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Copy to system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Ctags
+nnoremap <Leader>tt :TagbarToggle<CR>
+nnoremap <Leader>ttp :TagbarTogglePause<CR>
+nnoremap <leader>. :CtrlPTag<CR>
+" }}}
+
+" Mappings  ---------------------- {{{
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 noremap N Nzz
@@ -115,14 +132,9 @@ nnoremap <leader>. :CtrlPTag<CR>
 
 " searching for selected text
 vnorem // y/<c-r>"<cr>
+" }}}
 
-" Changes color of status bar if in insert mode
-" if version >= 700
-"   au InsertEnter * hi StatusLine term=reverse ctermfg=LightRed ctermbg=White
-"   au InsertLeave * hi StatusLine term=reverse ctermfg=LightGrey ctermbg=Black
-" endif
-
-" Abbrevations
+" Autocmds and Abbrevations ---------------------- {{{
 augroup python
     autocmd!
     autocmd BufNewFile,BufRead *.py iabbrev <buffer> pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
@@ -132,6 +144,21 @@ augroup python
     autocmd BufNewFile,BufRead *.clj iabbrev <buffer> pumpum (spit "/tmp/pum" (str "\npum" "\n") :append true)
 augroup END
 
+" Deletes trailing whitespaces
+autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.java :%s/\s\+$//e
+autocmd BufWritePre *.xml :%s/\s\+$//e
+autocmd BufWritePre *.cs :%s/\s\+$//e
+" }}}
+
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" Plugins file settings ---------------------- {{{
 " Vundle setup
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -206,3 +233,4 @@ Plugin 'https://github.com/Shougo/neocomplete.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+" }}}
