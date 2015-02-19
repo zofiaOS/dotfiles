@@ -71,12 +71,12 @@ inoremap kk <esc>
 inoremap jk <esc>
 
 " move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+noremap j gj
+noremap k gk
 
 " move on line
-nnoremap H ^
-nnoremap L $
+noremap H ^
+noremap L $
 
 nnoremap Y y$
 
