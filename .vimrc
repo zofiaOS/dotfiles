@@ -189,7 +189,6 @@ Plugin 'https://github.com/kien/ctrlp.vim'
 " Filesystem
 Plugin 'https://github.com/scrooloose/nerdtree'
 Plugin 'https://github.com/tpope/vim-vinegar'
-Plugin 'git://github.com/majutsushi/tagbar'
 
 " Git integration
 Plugin 'https://github.com/tpope/vim-fugitive'
