@@ -122,8 +122,12 @@ vnorem // y/<c-r>"<cr>
 " endif
 
 " Abbrevations
-autocmd BufNewFile,BufRead *.py iabbrev pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
-autocmd BufNewFile,BufRead *.clj iabbrev pumpum (spit ("/tmp/pum" (str "\npum" "\n") :append true))
+augroup python
+    autocmd BufNewFile,BufRead *.py iabbrev <buffer> pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
+augroup END
+augroup python
+    autocmd BufNewFile,BufRead *.clj iabbrev <buffer> pumpum (spit ("/tmp/pum" (str "\npum" "\n") :append true))
+augroup END
 
 " Vundle setup
 set nocompatible              " be iMproved, required
