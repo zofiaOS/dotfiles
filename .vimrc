@@ -40,6 +40,8 @@ set wildmenu
 set wildignore=*.swp,*.bak,*.pyc
 set ruler
 
+set hidden
+
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=lightgrey
 " }}}
@@ -47,7 +49,7 @@ set ruler
 " Leader ---------------------- {{{
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
-nnoremap <leader>l :CtrlPMRU<CR>
+nnoremap <leader>r :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>sq :wq<CR>
@@ -73,6 +75,22 @@ vmap <Leader>P "+P
 
 " Ctags
 nnoremap <leader>. :CtrlPTag<CR>
+
+" Mappings to access buffers
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 " }}}
 
 " Mappings  ---------------------- {{{
