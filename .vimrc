@@ -126,7 +126,7 @@ augroup python
     autocmd BufNewFile,BufRead *.py iabbrev <buffer> pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
 augroup END
 augroup python
-    autocmd BufNewFile,BufRead *.clj iabbrev <buffer> pumpum (spit ("/tmp/pum" (str "\npum" "\n") :append true))
+    autocmd BufNewFile,BufRead *.clj iabbrev <buffer> pumpum (spit "/tmp/pum" (str "\npum" "\n") :append true)
 augroup END
 
 " Vundle setup
