@@ -48,13 +48,14 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>l :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>s :wq<CR>
+nnoremap <Leader>sq :wq<CR>
 nnoremap <Leader>a ggVG
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader><space> :set hlsearch!<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <leader>sp :set paste!<CR>
 nnoremap <leader>ss :set spell!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -123,9 +124,11 @@ vnorem // y/<c-r>"<cr>
 
 " Abbrevations
 augroup python
+    autocmd!
     autocmd BufNewFile,BufRead *.py iabbrev <buffer> pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
 augroup END
 augroup python
+    autocmd!
     autocmd BufNewFile,BufRead *.clj iabbrev <buffer> pumpum (spit "/tmp/pum" (str "\npum" "\n") :append true)
 augroup END
 
