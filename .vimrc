@@ -64,6 +64,8 @@ nnoremap <leader>sp :set paste!<CR>
 nnoremap <leader>ss :set spell!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>m o<esc>k
+nnoremap <leader>M O<esc>j
 
 " Copy to system clipboard
 vmap <Leader>y "+y
@@ -129,21 +131,11 @@ nmap <Right> >>
 vmap <Left> <gv
 vmap <Right> >gv
 
-" Copy to system clipboard
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-
 " Convert the current word to uppercase
 inoremap <c-u> <esc>viwUi
 nnoremap <c-u> viwU
 
 " Ctags
-nnoremap <Leader>tt :TagbarToggle<CR>
-nnoremap <Leader>ttp :TagbarTogglePause<CR>
 nnoremap <leader>. :CtrlPTag<CR>
 
 " searching for selected text
