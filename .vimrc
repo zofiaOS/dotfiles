@@ -42,6 +42,8 @@ set ruler
 
 set hidden
 
+set fillchars-=vert:\|
+
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=lightgrey
 " }}}
@@ -79,7 +81,7 @@ vmap <Leader>P "+P
 nnoremap <leader>. :CtrlPTag<CR>
 
 " Mappings to access buffers
-nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>sl :ls<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 nnoremap <Leader>g :e#<CR>
@@ -93,6 +95,13 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
+
+" Mappings for splits
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+
 " }}}
 
 " Mappings  ---------------------- {{{
@@ -147,7 +156,7 @@ augroup python
     autocmd!
     autocmd BufNewFile,BufRead *.py iabbrev <buffer> pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
 augroup END
-augroup python
+augroup clojure
     autocmd!
     autocmd BufNewFile,BufRead *.clj iabbrev <buffer> pumpum (spit "/tmp/pum" (str "\npum" "\n") :append true)
 augroup END
@@ -208,6 +217,8 @@ set t_Co=256
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
+let g:airline#extensions#tabline#buffer_nr_show = 1
 Plugin 'https://github.com/bling/vim-airline'
 
 " Number of matches
