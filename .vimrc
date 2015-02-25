@@ -1,16 +1,10 @@
-syntax on
 " Settings  ---------------------- {{{
+syntax on
 set background=dark
 set shiftwidth=4
 set tabstop=4
 set expandtab
 set smarttab
-
-" Deletes trailing whitespaces
-autocmd BufWritePre *.py :%s/\s\+$//e
-autocmd BufWritePre *.java :%s/\s\+$//e
-autocmd BufWritePre *.xml :%s/\s\+$//e
-autocmd BufWritePre *.cs :%s/\s\+$//e
 
 " Highlight spaces and tabs in a more convenint way
 set list listchars=tab:>.,trail:.,extends:#,nbsp:.
@@ -44,17 +38,22 @@ set hidden
 
 set fillchars-=vert:\|
 
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j " Delete comment character when joining commented lines
+endif
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=lightgrey
 " }}}
 
 " Leader ---------------------- {{{
 let mapleader = "\<Space>"
+nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>r :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>sq :wq<CR>
+nnoremap <Leader>s :mksession<CR>
 nnoremap <Leader>a ggVG
 nnoremap <Leader>v :vsplit .<CR>
 nnoremap <Leader><space> :set hlsearch!<CR>
@@ -101,7 +100,6 @@ nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
-
 " }}}
 
 " Mappings  ---------------------- {{{
@@ -144,11 +142,9 @@ vmap <Right> >gv
 inoremap <c-u> <esc>viwUi
 nnoremap <c-u> viwU
 
-" Ctags
-nnoremap <leader>. :CtrlPTag<CR>
-
 " searching for selected text
 vnorem // y/<c-r>"<cr>
+nnoremap gV `[v`]
 " }}}
 
 " Autocmds and Abbrevations ---------------------- {{{
@@ -159,6 +155,9 @@ augroup END
 augroup clojure
     autocmd!
     autocmd BufNewFile,BufRead *.clj iabbrev <buffer> pumpum (spit "/tmp/pum" (str "\npum" "\n") :append true)
+    autocmd BufEnter *.clj setlocal tabstop=2
+    autocmd BufEnter *.clj setlocal shiftwidth=2
+    autocmd BufEnter *.clj setlocal softtabstop=2
 augroup END
 
 " Deletes trailing whitespaces
@@ -166,6 +165,10 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.java :%s/\s\+$//e
 autocmd BufWritePre *.xml :%s/\s\+$//e
 autocmd BufWritePre *.cs :%s/\s\+$//e
+
+" open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " }}}
 
 " Vimscript file settings ---------------------- {{{
