@@ -49,7 +49,7 @@ endif
 let mapleader = "\<Space>"
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>o :CtrlP<CR>
-nnoremap <leader>r :CtrlPMRU<CR>
+nnoremap <leader>rr :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>sq :wq<CR>
@@ -137,6 +137,7 @@ nnoremap <c-u> viwU
 
 " searching for selected text
 vnorem // y/<c-r>"<cr>
+" select last insert area
 nnoremap gV `[v`]
 " }}}
 
@@ -184,6 +185,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Syntax checking
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
 Plugin 'https://github.com/scrooloose/syntastic'
 
 " Clojure syntax highlighting
