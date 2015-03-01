@@ -47,7 +47,7 @@ endif
 
 " Leader ---------------------- {{{
 let mapleader = "\<Space>"
-nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>rr :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
