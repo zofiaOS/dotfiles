@@ -99,6 +99,8 @@ nnoremap <Leader>l <C-w>l
 " search will center on the line it's found in.
 noremap N Nzz
 noremap n nzz
+noremap * *zz
+noremap # #zz
 
 inoremap <esc> <nop>
 inoremap jj <Esc>
@@ -111,7 +113,9 @@ noremap k gk
 
 " move on line
 noremap H ^
+noremap ^ H
 noremap L $
+noremap $ L
 
 nnoremap Y y$
 
