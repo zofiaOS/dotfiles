@@ -56,17 +56,12 @@ nnoremap <Leader>sq :wq<CR>
 nnoremap <Leader>s :mksession<CR>
 nnoremap <Leader>a ggVG
 nnoremap <Leader>v :vsplit .<CR>
-nnoremap <Leader><space> :set hlsearch!<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <leader>sp :set paste!<CR>
-nnoremap <leader>ss :set spell!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>m o<esc>k
-nnoremap <leader>M O<esc>j
 
 " Copy to system clipboard
 vmap <Leader>y "+y
@@ -81,8 +76,6 @@ nnoremap <leader>. :CtrlPTag<CR>
 
 " Mappings to access buffers
 nnoremap <Leader>sl :ls<CR>
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
 nnoremap <Leader>g :e#<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
