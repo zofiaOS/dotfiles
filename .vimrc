@@ -41,13 +41,11 @@ set fillchars-=vert:\|
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j " Delete comment character when joining commented lines
 endif
-" set colorcolumn=80
-" highlight ColorColumn ctermbg=lightgrey
 " }}}
 
 " Leader ---------------------- {{{
 let mapleader = "\<Space>"
-nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>rr :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
@@ -62,6 +60,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <silent> <leader>cc :call ToggleColumn()<CR>
 
 " Copy to system clipboard
 vmap <Leader>y "+y
@@ -163,6 +162,17 @@ autocmd BufWritePre *.cs :%s/\s\+$//e
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" }}}
+
+" Functions ---------------------- {{{
+function! ToggleColumn()
+    if &colorcolumn != ''
+        set colorcolumn&
+    else
+        set colorcolumn=80
+    endif
+endfunction
 " }}}
 
 " Vimscript file settings ---------------------- {{{
