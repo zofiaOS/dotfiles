@@ -34,8 +34,6 @@ set wildmenu
 set wildignore=*.swp,*.bak,*.pyc
 set ruler
 
-set hidden
-
 set fillchars-=vert:\|
 
 if v:version > 703 || v:version == 703 && has("patch541")
@@ -102,7 +100,6 @@ noremap n nzz
 noremap * *zz
 noremap # #zz
 
-inoremap <esc> <nop>
 inoremap jj <Esc>
 inoremap kk <esc>
 inoremap jk <esc>
@@ -162,11 +159,6 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.java :%s/\s\+$//e
 autocmd BufWritePre *.xml :%s/\s\+$//e
 autocmd BufWritePre *.cs :%s/\s\+$//e
-
-" open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " }}}
 
 " Functions ---------------------- {{{
@@ -200,7 +192,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Syntax checking
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 Plugin 'https://github.com/scrooloose/syntastic'
 
@@ -219,7 +210,6 @@ Plugin 'https://github.com/kien/ctrlp.vim'
 
 " Filesystem
 Plugin 'https://github.com/scrooloose/nerdtree'
-Plugin 'https://github.com/tpope/vim-vinegar'
 
 " Git integration
 Plugin 'https://github.com/tpope/vim-fugitive'
@@ -237,30 +227,15 @@ Plugin 'https://github.com/bling/vim-airline'
 
 " Number of matches
 Plugin 'https://github.com/henrik/vim-indexed-search'
-" Showing marks
-Plugin 'https://github.com/kshenoy/vim-signature'
+
 Plugin 'https://github.com/scrooloose/nerdcommenter'
 
 " Completition
 Plugin 'https://github.com/davidhalter/jedi-vim'
-let g:neocomplete#enable_at_startup = 1
-" Jedi complete for python
-autocmd FileType python setlocal omnifunc=jedi#completions
-    let g:jedi#completions_enabled = 0
-    let g:jedi#auto_vim_configuration = 0
-    if !exists('g:neocomplete#force_omni_input_patterns')
-      let g:neocomplete#force_omni_input_patterns = {}
-    endif
-    let g:neocomplete#force_omni_input_patterns.python =
-    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-    " alternative pattern: '\h\w*\|[^. \t]\.\w*'
-Plugin 'https://github.com/Shougo/neocomplete.vim'
-
-" Alternative autocomplete
-" let g:neocomplcache_enable_at_startup = 1
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" Plugin 'https://github.com/Shougo/neocomplcache.vim'
+let g:neocomplcache_enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+Plugin 'https://github.com/Shougo/neocomplcache.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
