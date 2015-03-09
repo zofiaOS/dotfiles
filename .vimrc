@@ -101,7 +101,6 @@ noremap n nzz
 noremap * *zz
 noremap # #zz
 
-inoremap <esc> <nop>
 inoremap jj <Esc>
 inoremap kk <esc>
 inoremap jk <esc>
