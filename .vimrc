@@ -60,7 +60,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <silent> <leader>cc :call ToggleColumn()<CR>
+nnoremap <silent> <leader>co :call ToggleColumn()<CR>
 
 " Copy to system clipboard
 vmap <Leader>y "+y
