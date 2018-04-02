@@ -16,3 +16,5 @@ vimrc
    To install from command line: `vim +PluginInstall +qall`
 
    `sudo apt-get install ctags`
+    
+    `ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")`

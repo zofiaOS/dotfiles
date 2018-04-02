@@ -34,6 +34,8 @@ set wildmenu
 set wildignore=*.swp,*.bak,*.pyc
 set ruler
 
+set tags+=~/tags         " tags to python libs
+
 set fillchars-=vert:\|
 
 if v:version > 703 || v:version == 703 && has("patch541")
@@ -44,8 +46,8 @@ endif
 " Leader ---------------------- {{{
 let mapleader = "\<Space>"
 nnoremap <Leader>nt :NERDTreeToggle<CR>
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <leader>rr :CtrlPMRU<CR>
+nnoremap <Leader>rr :CtrlP<CR>
+nnoremap <leader>o :CtrlPMRU<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>sq :wq<CR>
@@ -139,12 +141,15 @@ nnoremap <c-u> viwU
 vnorem // y/<c-r>"<cr>
 " select last insert area
 nnoremap gV `[v`]
+" insert single char
+nnoremap <C-i> i_<Esc>r
 " }}}
 
 " Autocmds and Abbrevations ---------------------- {{{
 augroup python
     autocmd!
     autocmd BufNewFile,BufRead *.py iabbrev <buffer> pumpum with open("/tmp/pum", "a") as f:<cr>f.write("\n{}\n".format("pum"))
+    autocmd BufNewFile,BufRead *.py iabbrev <buffer> ipdbpi import ipdb<cr>ipdb.set_trace()
 augroup END
 augroup clojure
     autocmd!
@@ -168,6 +173,24 @@ function! ToggleColumn()
     else
         set colorcolumn=80
     endif
+endfunction
+nnoremap <silent> <leader>xx :call Constants()<CR>
+function! Constantsss()
+    %s/User.BROKER/accounts_constants.BROKER/g
+    %s/User.TENANT/accounts_constants.TENANT/g
+    %s/User.ADMINISTRATOR/accounts_constants.ADMINISTRATOR/g
+    %s/User.LANDLORD/accounts_constants.LANDLORD/g
+    %s/User.USER_CHOICES/accounts_constants.USER_CHOICES/g
+endfunction
+function! Constants()
+    %s/Proposal.NEW/proposals_constants.NEW/g
+    %s/Proposal.PENDING/proposals_constants.PENDING/g
+    %s/Proposal.SUBMITTED/proposals_constants.SUBMITTED/g
+    %s/Proposal.ACCEPTED/proposals_constants.ACCEPTED/g
+    %s/Proposal.REJECTED/proposals_constants.REJECTED/g
+    %s/Proposal.DELETED/proposals_constants.DELETED/g
+    %s/Proposal.WINNER/proposals_constants.WINNER/g
+    %s/Proposal.STATUS_CHOICES/proposals_constants.STATUS_CHOICES/g
 endfunction
 " }}}
 
@@ -193,6 +216,7 @@ Plugin 'gmarik/Vundle.vim'
 " Syntax checking
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_flake8_args = "--max-line-length=150"
 Plugin 'https://github.com/scrooloose/syntastic'
 
 " Clojure syntax highlighting
@@ -214,6 +238,8 @@ Plugin 'https://github.com/scrooloose/nerdtree'
 " Git integration
 Plugin 'https://github.com/tpope/vim-fugitive'
 
+Plugin 'https://github.com/dkprice/vim-easygrep'
+
 " Status bar
 set laststatus=2
 set encoding=utf-8
@@ -232,10 +258,13 @@ Plugin 'https://github.com/scrooloose/nerdcommenter'
 
 " Completition
 Plugin 'https://github.com/davidhalter/jedi-vim'
-let g:neocomplcache_enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-Plugin 'https://github.com/Shougo/neocomplcache.vim'
+"let g:neocomplcache_enable_at_startup = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"Plugin 'https://github.com/Shougo/neocomplcache.vim'
+
+" Typescript
+Plugin 'https://github.com/leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
